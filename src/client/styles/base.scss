@@ -1,0 +1,9 @@
+$font-family: 'Oswald', sans-serif;;
+$primary-color:rgb(100, 100, 219);
+$secondary-color: grey;
+
+body {
+  font: 100% $font-family;
+  background: $primary-color;
+}
+

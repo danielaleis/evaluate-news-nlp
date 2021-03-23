@@ -1,0 +1,55 @@
+// //colors
+// $color_night_shadz_approx: rgb(167, 57, 72);
+// $color_mine_shaft_approx: #444;
+// $color_lavender_magenta_approx: rgb(236, 115, 236);
+
+// //fonts
+// $font_0: Oswald;
+// $font_1: sans-serif;
+
+form {
+    border-radius: 20px;
+    padding: 40px;
+    margin: 10px 30px 10px 30px;
+}
+
+textarea {
+    border: 10px solid grey;
+    width: 1000px;
+    height: 200px;
+    padding: 20px;
+    font-size: 1.5em;
+    color: black;
+    background-color:rgb(236, 115, 236);
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+    border-radius: 20px;
+}
+
+input {
+    width: 1000px;
+    height: 200px;
+    padding: 5px 20px;
+    background-color:rgb(236, 115, 236);
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.button {
+    width: 150px;
+    height: 50px;
+    background: WHITE;
+    $color: rgb(167, 57, 72);
+    font-size: 26px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    border-radius: 5px;
+    $box-shadow: 2px 4px 5px #444;
+
+    &:hover {
+        background-color: rgb(236, 115, 236);
+    }
+}

@@ -1,0 +1,11 @@
+$secondary-color: grey;
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px 40px;
+    margin: 10px 0px 10px 0px; 
+    background-color: $secondary-color;
+    padding: 3em;
+    color: #fff;
+}

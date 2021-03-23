@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Natural Language Project</title>
+    </head> 
+
+    <body>
+
+        <header>
+            <div class="headline">
+                Natural Language Processing
+            </div>
+    
+        </header>
+
+        <main>
+            <section>
+                <form class="" onsubmit="return Client.handleSubmit(event)"> 
+                    <textarea id="name" type="text" name="input" value="" placeholder="Paste the text here, that you want to be analysed."></textarea>
+                    <!-- <input id="name" type="text" name="input" value="" placeholder="Paste the text here, that you want to be analysed.">  -->
+                    <input class="button" type="submit" name="" value="analyse" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)"> 
+                </form>
+            </section>
+
+            <section>
+                <strong>Form Results:</strong>
+                <div id="results">alles</div>
+                <div id="confidence">confidence</div>
+                <div id="irony">irony</div>
+                <div id="subjectivity">subjectivity</div>
+
+
+            </section>
+        </main>
+
+        <footer>
+            <p>This is a footer</p>
+        </footer>
+
+    </body>
+</html>
