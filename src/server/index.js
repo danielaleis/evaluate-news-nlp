@@ -57,9 +57,10 @@ app.post("/add", async (req, res) => {
 
     try {
         const data = await apiData.json();
-        console.log('apiData ++++>', data)
+        //console.log('apiData ++++>', data)
+        //console.log(JSON.parse(data));
         res.send(data)
-        console.log("funktioniert!");
+        //console.log("funktioniert!");
     } catch (err) {
         console.log("error", err);
     }

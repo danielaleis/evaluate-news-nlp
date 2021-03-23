@@ -18,22 +18,22 @@ function handleSubmit(event) {
             },
             body: JSON.stringify({ formText }),
         })
-    //.then(res => res.json())
+    .then(res => res.json())
     //hier updateUI einbauen?
     .then(function(res) {
+        console.log(res);
         //DAL: war da = document.getElementById('results').innerHTML = res
         //setTimeout(function() {
           //  console.log('Howdy');
         //}, 1000);
         updateUI(res);
-        //jo war (output)
-        console.log(res);
+        // war (output)
     })
 }
 
 // Get the analysed sentimentes it to be displayed in the results section
 async function updateUI(res) {
-    console.log("hallo UI");
+    console.log(res.irony);
     //document.querySelector('#results').innerHTML = "<code>" + output + "</code>";
     document.querySelector('#confidence').innerHTML = "Confidence in the text is " + res.confidence + "%";
     //DOC: This field represents the confidence associated with the sentiment analysis performed on the text. 
