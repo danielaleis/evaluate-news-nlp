@@ -9,9 +9,6 @@ function inputChecker(inputText) {
         inputType = "text";
     }
     return inputType;
-    // if(inputText.length == 0) {
-    // //     alert("Please enter text or URL")
-    // }
 }
 
 export {

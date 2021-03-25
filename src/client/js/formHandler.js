@@ -18,7 +18,7 @@ function handleSubmit(event) {
             },
             body: JSON.stringify({ inputObject }),
         })
-    .then(res => res.json())
+   .then(res => res.json())
     //hier updateUI einbauen?
     .then(function(res) {
         console.log(res);
@@ -33,28 +33,25 @@ function handleSubmit(event) {
 
 // Get the analysed sentimentes it to be displayed in the results section
 async function updateUI(res) {
+    const preparedResult = prepareContentUI(res);
     console.log(res.irony);
-    //document.querySelector('#results').innerHTML = "<code>" + output + "</code>";
-    document.querySelector('#confidence').innerHTML = "Confidence in the text is " + res.confidence + "%";
-    //DOC: This field represents the confidence associated with the sentiment analysis performed on the text. 
+    document.querySelector('#confidence').innerHTML = preparedResult.confidence;
     // Its value is an integer number in the 0-100 range.
-    //Terminal bei demi lovato sagt: 92
-
-    document.querySelector('#irony').innerHTML = "This text is " + res.irony;
-    //DOC: two possible values: ironic/non-ironic. Test:Alanis.
-    //Terminal bei alanis sagt: Nonironic
-
-
-    document.querySelector('#subjectivity').innerHTML = "This text is " + res.subjectivity;
-    //DOC: two possible values: objective/subjective. 
-    //Ironic bekommt: subjective. Demi: subjective
-
-
- //   const response = await fetch('/all');
- //   const latestData = await response.json();
-
+    document.querySelector('#irony').innerHTML = preparedResult.irony;
+    // Two possible values: ironic/non-ironic. 
+    document.querySelector('#subjectivity').innerHTML = preparedResult.subjectivity;
+    // Two possible values: objective/subjective. 
 }
 
-export { handleSubmit }
+function prepareContentUI(apiResponse){
+    console.log(apiResponse);
+    if(!apiResponse.confidence){
+        return false;
+    }  
+     const preparedResult = {irony: "This text is " + apiResponse.irony, confidence: "Confidence in the text is " +  apiResponse.confidence + "%", subjectivity: "This text is " + apiResponse.subjectivity};
+     return preparedResult;
+};
+
+export { handleSubmit, prepareContentUI }
 
 
