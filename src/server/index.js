@@ -48,8 +48,18 @@ app.get('/test', function (req, res) {
 
 //add post request 
 app.post("/add", async (req, res) => {
-    const input = req.body.formText;
-    const fetchURL = (`${baseURL}?key=${apiKey}&lang=${lang}&txt=${input}`)
+    console.log(req.body.inputObject);
+    let queryInput = "";
+    if (req.body.inputObject.type == "text") {
+        queryInput = "txt=" + req.body.inputObject.input;
+
+    } else {
+        queryInput = "url=" + req.body.inputObject.input;
+    }
+
+
+
+    const fetchURL = (`${baseURL}?key=${apiKey}&lang=${lang}&${queryInput}`)
     console.log(fetchURL);
     const apiData = await fetch(fetchURL, {
         method: 'POST'

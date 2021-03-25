@@ -3,12 +3,12 @@
 function handleSubmit(event) {
     event.preventDefault()
 
-    // check what text was put into the form field
-    // Ist die ID bei mir name? Oder was anderes? index.html
-    let formText = document.getElementById('name').value
-    //Client.checkForName(formText)
+    // check input-type and pass through object
+    const input = document.getElementById('name').value
+    const inputType = Client.inputChecker(input)
     console.log("::: Form Submitted :::");
-    console.log(formText);
+    const inputObject = {type:inputType, input: input};
+    console.log(inputObject);
     fetch("http://localhost:8080/add", {
             method: "POST",
             cache: "no-cache",
@@ -16,7 +16,7 @@ function handleSubmit(event) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ formText }),
+            body: JSON.stringify({ inputObject }),
         })
     .then(res => res.json())
     //hier updateUI einbauen?
