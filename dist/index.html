@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Natural Language Project</title>
-    </head> 
 
-    <body>
+<head>
+    <meta charset="utf-8">
+    <title>Natural Language Project</title>
+</head>
 
-        <header>
-            <div class="headline">
-                Natural Language Processing
-            </div>
-    
-        </header>
+<body>
 
-        <main>
-            <section>
-                <form class="" onsubmit="return Client.handleSubmit(event)"> 
-                    <textarea id="name" type="text" name="input" value="" placeholder="Paste the text here, that you want to be analysed."></textarea>
-                    <!-- <input id="name" type="text" name="input" value="" placeholder="Paste the text here, that you want to be analysed.">  -->
-                    <input class="button" type="submit" name="" value="analyse" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)"> 
-                </form>
-            </section>
+    <header>
+        <div class="headline">
+            Natural Language Processing
+        </div>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results">alles</div>
+    </header>
+
+    <main>
+        <section class="input">
+            <form class="" onsubmit="return Client.handleSubmit(event)">
+                <textarea id="name" type="text" name="input" value=""
+                    placeholder="Paste the text here, that you want to be analysed."></textarea>
+                <!-- <input id="name" type="text" name="input" value="" placeholder="Paste the text here, that you want to be analysed.">  -->
+                <input class="button" type="submit" name="" value="analyse" onclick="return Client.handleSubmit(event)"
+                    onsubmit="return Client.handleSubmit(event)">
+            </form>
+        </section>
+
+        <section class="results">
+            <article>
+                <h2>Form Results:</h2>
                 <div id="confidence">confidence</div>
                 <div id="irony">irony</div>
                 <div id="subjectivity">subjectivity</div>
+            </article>
+        </section>
+    </main>
 
+    <footer>
+        <p>This is a footer</p>
+    </footer>
 
-            </section>
-        </main>
+<script type="text/javascript" src="main.js"></script></body>
 
-        <footer>
-            <p>This is a footer</p>
-        </footer>
-
-    <script type="text/javascript" src="main.js"></script></body>
 </html>

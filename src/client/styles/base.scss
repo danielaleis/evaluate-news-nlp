@@ -5,5 +5,11 @@ $secondary-color: grey;
 body {
   font: 100% $font-family;
   background: $primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 100vw;
 }
 
