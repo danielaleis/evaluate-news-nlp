@@ -48,7 +48,7 @@ async function updateUI(res) {
 // Prepare Content to be displayed in the results section without Uppercase
 function prepareContentUI(apiResponse) {
     console.log(apiResponse);
-    if (!apiResponse.confidence) {
+    if (!apiResponse.confidence || !apiResponse.irony || !apiResponse.subjectivity) {
         return false;
     }
     const irony = apiResponse.irony
