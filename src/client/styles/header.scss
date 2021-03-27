@@ -1,11 +1,22 @@
 header {
+	grid-area: hd;
     display: flex;
     justify-content: center;
-    padding: 10px 20px;
+	padding: 10px 20px;
 }
 
 .headline {
-    font-size: 2em;
-    color: white;
+    color: mix(#fff, #6f1ee9df, 55%);
     margin: 50px 0px 40px 0px; 
+    font-size: calc(1em + 5vw) ;  
+	font-weight: 900;
+    text-shadow: 
+		-0.0075em 0.0075em 0 mix(#fff, #e91e63, 94%),
+		0.005em 0.005em 0 mix(#fff, #e91e63, 60%),
+		0.01em 0.01em 0 mix(#fff, #e91e63, 62%), 
+		0.015em 0.015em mix(#fff, #e91e63, 64%), 
+		0.02em 0.02em 0 mix(#fff, #e91e63, 66%), 
+		0.025em 0.025em 0 mix(#fff, #e91e63, 68%),
+		0.03em 0.03em 0 mix(#fff, #e91e63, 70%),
+		0.035em 0.035em 0 mix(#fff, #e91e63, 72%);
 }

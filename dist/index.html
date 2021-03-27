@@ -17,21 +17,20 @@
 
     <main>
         <section class="input">
-            <form class="" onsubmit="return Client.handleSubmit(event)">
-                <textarea id="name" type="text" name="input" value=""
-                    placeholder="Paste the text here, that you want to be analysed."></textarea>
-                <!-- <input id="name" type="text" name="input" value="" placeholder="Paste the text here, that you want to be analysed.">  -->
-                <input class="button" type="submit" name="" value="analyse" onclick="return Client.handleSubmit(event)"
+            <form class="" onsubmit="return Client.handleSubmit(event)" method="post">
+                <textarea class="flex_item" id="name" type="text" name="input" value=""
+                    placeholder="Paste the text or URL here, that you want to be analysed."></textarea>
+                <!-- <input id="name" type="text" name="input" value="" placeholder="Paste the text or URL here, that you want to be analysed.">  -->
+                <input class="button flex_item" type="submit" name="" value="analyse" onclick="return Client.handleSubmit(event)"
                     onsubmit="return Client.handleSubmit(event)">
             </form>
         </section>
-
+        <h2>Here are the Results:</h2>
         <section class="results">
             <article>
-                <h2>Form Results:</h2>
-                <div id="confidence">confidence</div>
-                <div id="irony">irony</div>
-                <div id="subjectivity">subjectivity</div>
+                <div id="confidence"></div>
+                <div id="irony"></div>
+                <div id="subjectivity"></div>
             </article>
         </section>
     </main>

@@ -1,9 +1,6 @@
-// Setup empty JS object to act as endpoint for all routes
-//projectData = {};
-
-// for using environmental variables and hide api key
 const dotenv = require('dotenv');
 dotenv.config();
+// for using environmental variables and hide the api key
 
 var path = require('path')
 const express = require('express')
@@ -12,12 +9,10 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const fetch = require('node-fetch');
 
-// //Set up the variables to call the API 
+// Set up the variables to call the API 
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
 const apiKey = process.env.API_KEY
 const lang = 'en';
-
-// ${baseURL}?key=${apiKey}&lang=${lang}&txt=${input}
 
 const app = express();
 
@@ -51,13 +46,11 @@ app.post("/add", async (req, res) => {
     console.log(req.body.inputObject);
     let queryInput = "";
     if (req.body.inputObject.type == "text") {
-        queryInput = "txt=" + req.body.inputObject.input;
+        queryInput = "txt=" + encodeURI(req.body.inputObject.input);
 
     } else {
         queryInput = "url=" + req.body.inputObject.input;
     }
-
-
 
     const fetchURL = (`${baseURL}?key=${apiKey}&lang=${lang}&${queryInput}`)
     console.log(fetchURL);
@@ -67,10 +60,7 @@ app.post("/add", async (req, res) => {
 
     try {
         const data = await apiData.json();
-        //console.log('apiData ++++>', data)
-        //console.log(JSON.parse(data));
         res.send(data)
-        //console.log("funktioniert!");
     } catch (err) {
         console.log("error", err);
     }

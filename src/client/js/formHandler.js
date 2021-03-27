@@ -1,14 +1,20 @@
-// import { SingleEntryPlugin } from "webpack"
-
 function handleSubmit(event) {
     event.preventDefault()
 
     // check input-type and pass through object
     const input = document.getElementById('name').value
-    const inputType = Client.inputChecker(input)
     console.log("::: Form Submitted :::");
-    const inputObject = {type:inputType, input: input};
+    document.querySelector('#confidence').innerHTML = "Preparing your result";
+    document.querySelector('#irony').innerHTML = "";
+    document.querySelector('#subjectivity').innerHTML = "";
+    const inputType = Client.inputChecker(input)
+    const inputObject = {
+        type: inputType,
+        input: input
+    };
     console.log(inputObject);
+
+
     fetch("http://localhost:8080/add", {
             method: "POST",
             cache: "no-cache",
@@ -16,22 +22,18 @@ function handleSubmit(event) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ inputObject }),
+            body: JSON.stringify({
+                inputObject
+            }),
         })
-   .then(res => res.json())
-    //hier updateUI einbauen?
-    .then(function(res) {
-        console.log(res);
-        //DAL: war da = document.getElementById('results').innerHTML = res
-        //setTimeout(function() {
-          //  console.log('Howdy');
-        //}, 1000);
-        updateUI(res);
-        // war (output)
-    })
+        .then(res => res.json())
+        .then(function (res) {
+            console.log(res);
+            updateUI(res);
+        })
 }
 
-// Get the analysed sentimentes it to be displayed in the results section
+// Get the analysed sentiments it to be displayed in the results section
 async function updateUI(res) {
     const preparedResult = prepareContentUI(res);
     console.log(res.irony);
@@ -43,15 +45,23 @@ async function updateUI(res) {
     // Two possible values: objective/subjective. 
 }
 
-function prepareContentUI(apiResponse){
+// Prepare Content to be displayed in the results section without Uppercase
+function prepareContentUI(apiResponse) {
     console.log(apiResponse);
-    if(!apiResponse.confidence){
+    if (!apiResponse.confidence) {
         return false;
-    }  
-     const preparedResult = {irony: "This text is " + apiResponse.irony, confidence: "Confidence in the text is " +  apiResponse.confidence + "%", subjectivity: "This text is " + apiResponse.subjectivity};
-     return preparedResult;
+    }
+    const irony = apiResponse.irony
+    const subjectivity = apiResponse.subjectivity
+    const preparedResult = {
+        irony: "This text is " + irony.toLowerCase() + ".",
+        confidence: "Confidence in the text is " + apiResponse.confidence + " percent.",
+        subjectivity: "This text is " + subjectivity.toLowerCase() + "."
+    };
+    return preparedResult;
 };
 
-export { handleSubmit, prepareContentUI }
-
-
+export {
+    handleSubmit,
+    prepareContentUI
+}
